@@ -33,7 +33,7 @@ class LoginPage:
     def makeButton (self):
         self.checkbox = Tk.Checkbutton(self.frameButton, text="Keep me logged in").grid(row=0, column=1)
         self.frameButton.place(x=90, y=110)
-        self.logbtn = Tk.Button(self.frameButton1, text="Login",command=self.openFrame).grid(row=0, column=1)
+        self.logbtn = Tk.Button(self.frameButton1, text="Login",command=self.logInBttn).grid(row=0, column=1)
         self.frameButton1.place(x=130, y=145)
         self.Quitbutton = Tk.Button(self.frameButton2, text="exit",command=self.quit).grid(row=0, column=1)
         self.frameButton2.place(x=220, y=145)
@@ -42,7 +42,7 @@ class LoginPage:
         """"""
         self.root.withdraw()
  
-    def openFrame(self):
+    def logInBttn(self):
         """"""
         username = self.entry_username.get()
         password = self.entry_password.get()
@@ -100,7 +100,7 @@ class MainPage(Tk.Toplevel):
         Tk.Button(self,relief='raised', text="Load Media", command=self.browseButton).place(x=75, y=375)
         Tk.Button(self,relief='raised', text="New Image", command=self.openCAM).place(x=225, y=375)
         Tk.Button(self,relief='raised', text="exit", command=self.quit).place(x=685, y=405)
-        Tk.Button(self,relief='raised', text="Edged Detect", command=self.objectDetection).place(x=500, y=375)
+        Tk.Button(self,relief='raised', text="Edged Detect", command=self.edgeDetection).place(x=500, y=375)
  
     def backLoginPage(self):
         """"""
@@ -123,7 +123,7 @@ class MainPage(Tk.Toplevel):
         except :
             messagebox.showwarning("error","wrong format media, please check again")
 
-    def objectDetection(self):
+    def edgeDetection(self):
         self.gray = cv2.cvtColor(self.img, cv2.COLOR_BGR2GRAY)
         self.gray = cv2.GaussianBlur(self.gray, (5, 5), 0)
         self.gray1 = cv2.GaussianBlur(self.gray, (7, 7), 0)
