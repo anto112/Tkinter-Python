@@ -10,32 +10,33 @@ class LoginPage:
     def __init__(self, parent):
         """Constructor"""
         self.root = parent
-        self.root.title("Main frame")
+        self.root.title("Python")
         self.frame = Tk.Frame(parent)
         self.frame.pack()
         self.frameButton=Tk.Frame(parent)
         self.frameButton1=Tk.Frame(parent)
         self.frameButton2=Tk.Frame(parent)
 
-        Tk.Label (text ="LOGIN PAGE", bg ="green",fg="brown",width="600",height="1",font=("tahoma",16)).pack() 
+        Tk.Label (text ="LOGIN PAGE", bg ="green",fg="brown",width="350",height="1",font=("tahoma",16)).pack() 
         self.label_username =Tk.Label(text="Username :")
         self.label_password =Tk.Label(text="Password :")
         self.entry_username =Tk.Entry()
         self.entry_password =Tk.Entry(show="*")
-        self.label_username.place(x=80,y=58)
-        self.label_password.place(x=80,y=87)
-        self.entry_username.place(x=170, y=60)
-        self.entry_password.place(x=170, y=90)
+        self.label_username.place(x=80,y=55)
+        self.label_password.place(x=80,y=85)
+        self.entry_username.place(x=170, y=58)
+        self.entry_password.place(x=170, y=88)
+        Tk.Label (text ="", bg ="green",fg="brown",width="350",height="1",font=("tahoma",16)).place(x=0, y=185)
 
         self.makeButton()
 
     def makeButton (self):
         self.checkbox = Tk.Checkbutton(self.frameButton, text="Keep me logged in").grid(row=0, column=1)
-        self.frameButton.place(x=90, y=115)
+        self.frameButton.place(x=90, y=110)
         self.logbtn = Tk.Button(self.frameButton1, text="Login",command=self.openFrame).grid(row=0, column=1)
-        self.frameButton1.place(x=150, y=155)
+        self.frameButton1.place(x=130, y=145)
         self.Quitbutton = Tk.Button(self.frameButton2, text="exit",command=self.quit).grid(row=0, column=1)
-        self.frameButton2.place(x=240, y=155)
+        self.frameButton2.place(x=220, y=145)
 
     def hide(self):
         """"""
@@ -99,7 +100,7 @@ class MainPage(Tk.Toplevel):
         Tk.Button(self,relief='raised', text="Load Media", command=self.browseButton).place(x=75, y=375)
         Tk.Button(self,relief='raised', text="New Image", command=self.openCAM).place(x=225, y=375)
         Tk.Button(self,relief='raised', text="exit", command=self.quit).place(x=685, y=405)
-        Tk.Button(self,relief='raised', text="Detect Object", command=self.objectDetection).place(x=500, y=375)
+        Tk.Button(self,relief='raised', text="Edged Detect", command=self.objectDetection).place(x=500, y=375)
  
     def backLoginPage(self):
         """"""
@@ -137,7 +138,7 @@ class MainPage(Tk.Toplevel):
         self.canvas1.place(x=380,y=100)
 
     def openCAM(self):
-        print("During in development now !!!")
+        print("Still in development now !!!")
         
     def quit(self):
         answer = messagebox.askquestion('', "Are you sure want to exit ?" )
